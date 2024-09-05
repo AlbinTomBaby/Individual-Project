@@ -1,43 +1,67 @@
-# Player Analysis and Recruitment Tool
+# Football Player Performance Analysis and Prediction
+This project focuses on analyzing football player performance metrics and predicting their wages and performance scores. It includes data cleaning, feature engineering, exploratory data analysis (EDA), model building, and evaluation using various Python libraries.
 
-## Overview
+## Table of Contents
+1. [Data Sources](#data-sources)
+2. [Project Structure](#project-structure)
+3. [Data Preprocessing](#data-preprocessing)
+4. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+5. [Model Building](#model-building)
+6. [Feature Importance](#feature-importance)
+7. [Results](#results)
+8. [Usage](#usage)
 
-This repository contains a tool designed to help football clubs and players make informed decisions regarding their careers and team compositions. The tool allows clubs to analyze player performance, wages, contract details, and other important factors to determine the best fit for their teams. It also assists players in evaluating their current positions and potential opportunities for better contracts and career progression.
+## Data Sources
+- **Defensive Action Stats**: Contains player-specific defensive stats like blocks, interceptions, and clearances.
+- **Goal and Shot Creation Stats**: Includes metrics like Shot Creating Actions (SCA) and Goal Creating Actions (GCA).
+- **Passing Stats**: Provides passing accuracy percentages for each player.
+- **Player Wages**: Contains data on players' weekly and annual wages.
+- **Shooting Stats**: Includes shooting-related statistics such as goals, shots on target, and conversion rates.
 
-## Features
+## Project Structure
 
-### For Players:
-- **Performance Analysis**: Evaluate current performance metrics to assess whether continuing with the current team or exploring better opportunities is more beneficial.
-- **Salary Comparison**: Compare current wages with potential offers from other clubs to make informed decisions about contract negotiations.
-- **Contract Analysis**: Review contract expiry dates, clauses, and other terms to optimize career decisions.
-- **Market Value Assessment**: Estimate market value based on performance, age, position, and current market trends.
+- **data/**: Folder containing the datasets used in the project.
+- **notebooks/**: Jupyter notebooks used for EDA, data processing, model training, and evaluation.
+- **images/**: Contains visualizations generated during the EDA and SHAP analysis.
+- **src/**: Contains Python scripts for data preprocessing, model training, and evaluation.
+- **results/**: Contains the final output files, including predictions and performance metrics.
 
-### For Clubs:
-- **Player Search & Recruitment**: Identify players that meet specific criteria, such as performance metrics, wage expectations, contract length, and release clauses.
-- **Squad Optimization**: Analyze current squad to determine areas that need strengthening and identify potential transfer targets.
-- **Budget Management**: Evaluate the financial implications of signing new players, including wages, transfer fees, and potential resale value.
-- **Contract Negotiation Insights**: Gain insights into the most favorable terms when negotiating player contracts.
+## Data Preprocessing
 
-## Installation
+The data preprocessing includes:
 
-To use this tool, follow these steps:
+- **Data Merging**: Merging datasets based on the player names.
+- **Data Cleaning**: Handling missing values and converting non-numeric values.
+- **Feature Engineering**: Creating new features such as pass completion percentage and converting wages to numeric format.
+- **Encoding Categorical Features**: Encoding categorical features like player position and squad.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/player-analysis-recruitment-tool.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd player-analysis-recruitment-tool
-    ```
-3. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+## Exploratory Data Analysis (EDA)
+
+- A comprehensive EDA was conducted to explore relationships between features.
+- **Correlation Matrix**: Visualizes the correlation between different performance metrics.
+- **Histograms**: Provide distributions of key features.
+- Visuals are provided in the `images/` directory.
+
+## Model Building
+
+The models used in the project include:
+
+- **Random Forest Classifier**
+- **XGBoost Classifier**
+
+The models were evaluated based on accuracy, precision, recall, and F1-score.
+
+## Feature Importance
+
+- **SHAP (SHapley Additive exPlanations)** was used to interpret the importance of various features in predicting player wages and performance.
+- Visualizations are provided to show the average impact of each feature on the model's output.
+
+## Results
+
+The final predictions, along with the cleaned data, are saved in the `results/final_table_with_predictions.xlsx` file. Model performance metrics and feature importance plots are available in the repository.
 
 ## Usage
 
-### Player Analysis
-To analyze a player, use the `player_analysis.py` script. Example usage:
-```bash
-python player_analysis.py --player "Player Name" --team "Current Team" --analyze_salary --compare_teams
+1. Run the preprocessing script to clean and merge the data.
+2. Execute the notebooks in the `notebooks/` folder to perform EDA and model training.
+3. Generate predictions and evaluate the model using the scripts in the `src/` folder.
