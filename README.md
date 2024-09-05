@@ -1,67 +1,53 @@
-# Football Player Performance Analysis and Prediction
-This project focuses on analyzing football player performance metrics and predicting their wages and performance scores. It includes data cleaning, feature engineering, exploratory data analysis (EDA), model building, and evaluation using various Python libraries.
+# Data-Driven Player Transfer Optimization System
 
-## Table of Contents
-1. [Data Sources](#data-sources)
-2. [Project Structure](#project-structure)
-3. [Data Preprocessing](#data-preprocessing)
-4. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-5. [Model Building](#model-building)
-6. [Feature Importance](#feature-importance)
-7. [Results](#results)
-8. [Usage](#usage)
+## Overview
 
-## Data Sources
-- **Defensive Action Stats**: Contains player-specific defensive stats like blocks, interceptions, and clearances.
-- **Goal and Shot Creation Stats**: Includes metrics like Shot Creating Actions (SCA) and Goal Creating Actions (GCA).
-- **Passing Stats**: Provides passing accuracy percentages for each player.
-- **Player Wages**: Contains data on players' weekly and annual wages.
-- **Shooting Stats**: Includes shooting-related statistics such as goals, shots on target, and conversion rates.
+The **Data-Driven Player Transfer Optimization System** is designed to help football teams optimize their player transfers by applying advanced data science techniques. The system integrates machine learning models and football analytics to provide accurate player valuations, identify undervalued talents, and maximize both financial and strategic outcomes.
 
-## Project Structure
+## Objective
 
-- **data/**: Folder containing the datasets used in the project.
-- **notebooks/**: Jupyter notebooks used for EDA, data processing, model training, and evaluation.
-- **images/**: Contains visualizations generated during the EDA and SHAP analysis.
-- **src/**: Contains Python scripts for data preprocessing, model training, and evaluation.
-- **results/**: Contains the final output files, including predictions and performance metrics.
+The objective of this project is to develop a data-driven framework that enables football clubs to make more objective and informed decisions regarding player transfers, enhancing both on-field performance and financial sustainability.
 
-## Data Preprocessing
+## Key Features
 
-The data preprocessing includes:
+- **Machine Learning Models**: Utilizes advanced models like XGBoost, Random Forest Classifier, and a custom threshold classifier to predict whether a player should "stay at the club" or "seek better options."
+- **Data Integration**: Combines various datasets, including player performance data, economic factors, and match statistics, to offer a holistic analysis.
+- **Exploratory Data Analysis (EDA)**: Conducts EDA to understand data distributions, correlations, and key insights to drive transfer decisions.
+- **Feature Engineering**: Leverages features such as offensive and defensive scores, pass completion percentages, and wage metrics for predictive modeling.
+- **Real-Time Adaptation Potential**: Designed to integrate real-time data sources for continuous optimization.
 
-- **Data Merging**: Merging datasets based on the player names.
-- **Data Cleaning**: Handling missing values and converting non-numeric values.
-- **Feature Engineering**: Creating new features such as pass completion percentage and converting wages to numeric format.
-- **Encoding Categorical Features**: Encoding categorical features like player position and squad.
+## Methodology
 
-## Exploratory Data Analysis (EDA)
+1. **Dataset Collection**:
+   - Data is collected from publicly available sports databases like FBref, covering features such as goals, assists, passes completed, defensive actions, and player wages.
 
-- A comprehensive EDA was conducted to explore relationships between features.
-- **Correlation Matrix**: Visualizes the correlation between different performance metrics.
-- **Histograms**: Provide distributions of key features.
-- Visuals are provided in the `images/` directory.
+2. **Data Preparation**:
+   - Data is cleaned and preprocessed to handle missing values and inconsistencies. The relevant columns are selected and merged into a single dataset.
 
-## Model Building
+3. **Model Building**:
+   - Three machine learning models are implemented:
+     - **XGBoost Classifier**: Achieves high accuracy (99.24%) using gradient boosting.
+     - **Random Forest Classifier**: Provides robust results with an accuracy of 97.71%.
+     - **Custom Threshold Classifier**: A rule-based model with an accuracy of 60.31%.
 
-The models used in the project include:
+4. **Model Evaluation**:
+   - Models are evaluated using metrics like accuracy, confusion matrix, and classification reports. XGBoost demonstrates the highest accuracy and robustness.
 
-- **Random Forest Classifier**
-- **XGBoost Classifier**
+5. **SHAP Analysis**:
+   - SHAP values are used to interpret the XGBoost model, highlighting influential features such as age, offensive score, defensive score, and weekly wage.
 
-The models were evaluated based on accuracy, precision, recall, and F1-score.
+## Code Usage
 
-## Feature Importance
+The provided Python code contains scripts for data loading, cleaning, model training, evaluation, and analysis.
 
-- **SHAP (SHapley Additive exPlanations)** was used to interpret the importance of various features in predicting player wages and performance.
-- Visualizations are provided to show the average impact of each feature on the model's output.
+### Prerequisites
 
-## Results
+- Python 3.x
+- Required libraries: `pandas`, `numpy`, `scikit-learn`, `xgboost`, `matplotlib`, `seaborn`, `shap`
 
-The final predictions, along with the cleaned data, are saved in the `results/final_table_with_predictions.xlsx` file. Model performance metrics and feature importance plots are available in the repository.
+### Steps to Run the Code
 
-## Usage
+1. Install the required libraries using pip:
 
-1. Run the preprocessing script to clean and merge the data.
-2. Execute the notebooks in the `notebooks/` folder to perform EDA and model training.
-3. Generate predictions and evaluate the model using the scripts in the `src/` folder.
+   ```bash
+   pip install pandas numpy scikit-learn xgboost matplotlib seaborn shap
